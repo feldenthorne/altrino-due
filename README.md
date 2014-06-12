@@ -1,6 +1,6 @@
 Altrino Due
-Author: Feldenthorne
 ========
+Author: Feldenthorne
 
 Description: 
 This is the source code for an alternative build environment for the Arduino Due. The project 
