@@ -16,6 +16,7 @@ To put a few details to this setup, it:
 * __Requires__ the user to install BOSSA and gcc-arm-none-eabi
 
 ###Current Capabilities###
+
 Currently, this project builds a slightly modified "Getting Started" example from the
 Atmel Software Framework source for the Arduino Due, just to give the user an idea of how 
 things work.
@@ -23,6 +24,7 @@ things work.
 - - -
 
 ##Downloading Source##
+
 In order to download the source, which is maintained with the aid of the version-control 
 software Git, it is necessary to download a Git or Subversion client. (It's actually not 
 _entirely_ necessary, but highly suggested for retrieving updates. If you're put off by 
@@ -41,12 +43,14 @@ during a command line checkout.
 - - -
 
 ##How to Build##
+
 In order to build anything using this framework, it is necessary to download and install two
 pieces of software: an ARM-based compiler and a program to upload compiled programs to the Due.
 A third required download is the Atmel Software Framework, which only needs to be unzipped and
 placed in the lib directory in a folder called ASF.
 
 ###Compiler###
+
 The compiler required is arm-none-eabi-gcc, which is a bare-metal (no particular OS) compiler. 
 There multitudinous options for installing it, so you should pick one suitable to your needs. 
 This project was originally developed on a Linux-based system, however, and this terminal-based 
@@ -85,6 +89,7 @@ The above setup method is a slightly condensed version of the explanation given 
 
 	
 ###BOSSA### 
+
 [BOSSA](http://www.shumatech.com/web/products/bossa) is an open-source alternative to Atmel's 
 proprietary BIN file uploader for their ARM processors - and it's the one that the Arduino 
 IDE uses, if you're interested. Needless to say, it's necessary to install it to upload any 
@@ -97,6 +102,7 @@ Otherwise, you can download the binaries for your particular system on their [So
 page](http://sourceforge.net/projects/b-o-s-s-a/files/).
 
 ###Atmel Software Framework### 
+
 The [Atmel Software Framework](http://www.atmel.com/tools/avrsoftwareframework.aspx) is 
 Atmel's proprietary framework software for their  microcontrollers. This build 
 environment piggybacks on the ASF because there was no real reason to rewrite the drivers 
@@ -126,6 +132,7 @@ For added convenience, the Makefile also supports:
 - - -
 
 ##Building Documentation##
+
 Documentation will be added in a future release, but it will eventually be buildable with 
 the command
 
