@@ -88,7 +88,7 @@ The above setup method is a slightly condensed version of the explanation given 
 [pixhawk.org](http://pixhawk.org/dev/toolchain_installation_lin) with a little extra thrown in.
 
 	
-###BOSSA### 
+###BOSSA###
 
 [BOSSA](http://www.shumatech.com/web/products/bossa) is an open-source alternative to Atmel's 
 proprietary BIN file uploader for their ARM processors - and it's the one that the Arduino 
@@ -101,7 +101,7 @@ If you're using a Debian/Ubuntu distribution, you can download "bossac" using
 Otherwise, you can download the binaries for your particular system on their [SourceForge
 page](http://sourceforge.net/projects/b-o-s-s-a/files/).
 
-###Atmel Software Framework### 
+###Atmel Software Framework###
 
 The [Atmel Software Framework](http://www.atmel.com/tools/avrsoftwareframework.aspx) is 
 Atmel's proprietary framework software for their  microcontrollers. This build 
