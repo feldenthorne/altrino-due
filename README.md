@@ -5,7 +5,7 @@ Author: Feldenthorne
 
 This is the source code for an alternative build environment for the Arduino Due. The project 
 stemmed from a the need for a more robust development environment for the Arduino
-Due than could be (easily) managed within the confines of the Arduino IDE and it's weird
+Due than could be (easily) managed within the confines of the Arduino IDE and its weird
 "throw everything in a base folder to compile" approach.
 
 To put a few details to this setup, it:
@@ -14,6 +14,10 @@ To put a few details to this setup, it:
 (http://www.atmel.com/tools/avrsoftwareframework.aspx) (ASF)
 * Incorporates many ASF features into a system library (timers, UART, GPIO, etcetera)
 * __Requires__ the user to install BOSSA and gcc-arm-none-eabi
+
+Basically, this build environment should allow you to use all the functions defined
+for the Arduino Due in the ASF, as well as incorporate FreeRTOS into your project fairly
+easily.
 
 ###Current Capabilities###
 
@@ -125,9 +129,10 @@ source directory in a command prompt or terminal window and type
 
 For added convenience, the Makefile also supports:
 
-	make clean		Cleans up compiled and temp files
-	make lib		Builds the library file
-	make install	Builds the project file and uploads it to your Due using bossac
+	make clean			Cleans up compiled and temp files
+	make lib			Builds the library file
+	make install		Builds the project file and uploads it to your Due using bossac
+	make putty			Opens a PuTTY terminal to view serial output
 
 - - -
 

@@ -1,7 +1,7 @@
 # Common ARM Makefile
 
 # List of phony commands
-.PHONY: all library clean install
+.PHONY: all library clean install putty
 
 #-----------------------------------------------------------------------------------
 # Compiler Object/Flag Setup
@@ -317,3 +317,28 @@ clean:
 	@echo -n Removing the system library...
 	@rm -f $(LIB_NAME)
 	@echo done.
+	
+#-----------------------------------------------------------------------------------
+# 'make putty' 
+#-----------------------------------------------------------------------------------
+# This opens a PuTTY terminal with standard settings for this environment: a serial
+# port at /dev/ttyACM0 and a baudrate of 115200 bps. It also states the data transfer
+# protocol specifically, but I'm not sure if that's necessary.
+#
+# The "-serial XXX" argument defines the serial port that the computer identifies the
+# MCU with. In most cases, this is /dev/ttyACM0 on Ubuntu, but occasionally if pops
+# up as /dev/ttyACM1 if Ubuntu hasn't realized that the device at ACM0 has disconnected.
+#
+# The "-sercfg XXX" argument defines, in order: baudrate, number of bits transferred,
+# parity, and data flow control. The default settings here are '115200' baud, '8' bits 
+# per data packet, 'n' for no parity, '1' for a single stop bit, and 'N' for no flow
+# control.
+#
+# As a general note, Ubuntu 14.04 has a bug with GLib that makes the terminal fill with
+# garbage when using this command, for now. An article,
+# https://bugs.launchpad.net/ubuntu/+source/gnome-control-center/+bug/1264368, describes
+# that the g_source_remove() method in GLib throws this warning when an already
+# terminated process is passed in for termination. It's a bit annoying, but harmless.
+#
+putty:
+	putty -serial /dev/ttyACM0 -sercfg 115200,8,n,1,N
