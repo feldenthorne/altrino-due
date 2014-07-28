@@ -127,7 +127,7 @@ For added convenience, the Makefile also supports:
 
 	make clean		Cleans up compiled and temp files
 	make lib		Builds the library file
-	make install		Builds the project file and uploads it to your Due using bossac
+	make install	Builds the project file and uploads it to your Due using bossac
 
 - - -
 

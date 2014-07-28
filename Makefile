@@ -1,8 +1,13 @@
 # Include the necessary makefiles to build libraries and include syscall functions
 #
-#include common/freertoslib.mk
+include common/freertoslib.mk
 include common/asflib.mk
 include common/syscalls.mk
+
+# If you plan on using FreeRTOS, make sure that this variable is set to 1
+# This is necessary when compiling examples out of ASF because each example has its
+# own SysTick_Handler, which FreeRTOS replaces with its own.
+_USE_FREERTOS_ = 1
 
 # Project name
 TARGET = getting_started
@@ -65,6 +70,11 @@ CFLAGS =
 # Extra flags to use when linking
 ifeq ($(_USE_NEWLIBNANO_),1)
 LDFLAGS += --specs=nano.specs
+endif
+
+# Extra flags to use when linking
+ifeq ($(_USE_FREERTOS_),1)
+CFLAGS += -D _USE_FREERTOS_
 endif
 
 # Additional options for debugging. By default the common Makefile.in will

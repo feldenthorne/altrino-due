@@ -168,12 +168,17 @@ static void ProcessButtonEvt(uint8_t uc_button)
  *
  *  Process System Tick Event
  *  Increments the g_ul_ms_ticks counter.
+ *  If we have FreeRTOS enabled, this'll cause issues with the SysTick_Handler provided
+ *  in FreeRTOS/Source/portable/GCC/ARM_CM3/port.c, so this needs to be surrounded by
+ *  an 
  */
 // [main_systick_handler]
-void SysTick_Handler(void)
-{
-	g_ul_ms_ticks++;
-}
+	#ifndef _USE_FREERTOS_
+	void SysTick_Handler(void)
+	{
+		g_ul_ms_ticks++;
+	}
+	#endif
 // [main_systick_handler]
 
 /**
@@ -356,10 +361,14 @@ int main(void)
 	/* Configure systick for 1 ms */
 	puts("Configure system tick to get 1ms tick period.\r");
 //! [main_step_systick_init]
-	if (SysTick_Config(sysclk_get_cpu_hz() / 1000)) {
-		puts("-F- Systick configuration error\r");
-		while (1);
-	}
+	// Here, we have to make sure FreeRTOS isn't enabled because it has its own
+	// SysTick_Handler and this'll undermine it with the ASF functions
+	#ifndef _USE_FREERTOS_
+		if (SysTick_Config(sysclk_get_cpu_hz() / 1000)) {
+			puts("-F- Systick configuration error\r");
+			while (1);
+		}
+	#endif
 //! [main_step_systick_init]
 
 	puts("Configure TC.\r");
