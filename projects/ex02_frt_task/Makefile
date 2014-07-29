@@ -1,7 +1,7 @@
 # If you plan on using FreeRTOS, make sure that this variable is set to 1
 # This is necessary when compiling examples out of ASF because each example has its
 # own SysTick_Handler, which FreeRTOS replaces with its own.
-_USE_FREERTOS_ = 0
+_USE_FREERTOS_ = 1
 
 # Include the necessary makefiles to build libraries and include syscall functions
 #
@@ -12,7 +12,7 @@ include common/asflib.mk
 include common/syscalls.mk
 
 # Project name
-TARGET = getting_started
+TARGET = ex02_frt_task
 
 # Path to top level ASF directory relative to this project directory.
 PRJ_PATH = lib/ASF

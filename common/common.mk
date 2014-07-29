@@ -260,6 +260,7 @@ $(target).bin:
 # listed in $(ASF_FILES)
 #
 library:  $(FRT_OBJS) $(ASF_LIB_OBJS)
+	@echo "cats " $(FRT_OBJS)
 	$(AR) r $(ar_flags) $(FRT_OBJS) $(ASF_LIB_OBJS)
 	
 #-----------------------------------------------------------------------------------
