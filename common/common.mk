@@ -58,9 +58,9 @@ PROJ_OBJS = \
 CROSS           ?= arm-none-eabi-
 AR              := $(CROSS)ar
 AS              := $(CROSS)as
-CC              := $(CROSS)gcc
-CPP             := $(CROSS)gcc -E
-CXX             := $(CROSS)g++
+CC              := $(CROSS)g++ -c
+CPP             := $(CROSS)g++ -c
+CXX             := $(CROSS)g++ -c
 LD              := $(CROSS)g++
 NM              := $(CROSS)nm
 OBJCOPY         := $(CROSS)objcopy
@@ -181,6 +181,7 @@ endif
 # The rdimon library is one with basic linkages defined for debugging purposes
 
 startgroup-gnu-y = -Wl,--start-group
+resetgroup-gnu-y = -Wl,--entry=Reset_Handler
 endgroup-gnu-y = -Wl,--end-group
 
 #ldflags-gnu-y   += $(patsubst %,-L%,$(LIB_PATH))
@@ -205,17 +206,17 @@ ar_flags = $(arflags-gnu-y)
 # How to compile a .c file into a .o file
 .c.o:
 	@echo $<
-	@$(CC) -c $(c_flags) $< -o $@
+	@$(CC) -x c $(c_flags) $< -o $@
 
 # How to compile a .cc file into a .o file
 .cc.o:
 	@echo $<
-	@$(CXX) -c $(cxx_flags) $< -o $@
+	@$(CXX) -x none $(cxx_flags) $< -o $@
 
 # How to compile a .cpp file into a .o file
 .cpp.o:
 	@echo $<
-	@$(CC) -E $(cxx_flags) $< -o $@
+	@$(CPP) -x c++ $(cxx_flags) $< -o $@
 
 # How to compile an .S file into a .o file
 .S.o:
@@ -240,7 +241,7 @@ all: library $(target).elf $(target).bin
 #	$(SIZE) -Bx $@
 	
 $(target).elf:  $(PROJ_OBJS)
-	$(LD) $(startgroup-gnu-y) -Wl,--entry=Reset_Handler $(l_flags) $(PROJ_OBJS)  $(LIB_NAME) $(libflags-gnu-y) $(endgroup-gnu-y)  -g -o $@
+	$(LD) $(startgroup-gnu-y) $(resetgroup-gnu-y) $(l_flags) $(PROJ_OBJS) $(LIB_NAME) $(libflags-gnu-y) $(endgroup-gnu-y) -g -o $@
 	@echo size
 	@$(SIZE) -Bx $@
 #	@echo flags $(c_flags)
@@ -257,10 +258,9 @@ $(target).bin:
 #-----------------------------------------------------------------------------------
 # Builds the library file, using an automatically generated list of
 # all the C, C++, and assembly source files in the library files 
-# listed in $(ASF_FILES)
+# listed in $(ASF_FILES) and $(FRT_FILES)
 #
 library:  $(FRT_OBJS) $(ASF_LIB_OBJS)
-	@echo "cats " $(FRT_OBJS)
 	$(AR) r $(ar_flags) $(FRT_OBJS) $(ASF_LIB_OBJS)
 	
 #-----------------------------------------------------------------------------------

@@ -7,17 +7,17 @@
 #-----------------------------------------------------------------------------------
 # Syscalls Location
 #-----------------------------------------------------------------------------------
-# SYSCALL_PATH: Path to top level FreeRTOS directory relative to this project directory.
+# SYSCALL_PATH: Path to top level syscalls directory relative to this project directory.
 #            this allows the compiler to find everything it needs to build a
-#            library of all FreeRTOS files relevant to a particular board.
+#            library of all syscalls files relevant to a particular board.
 #            Unless you mess around with the directories, because this is located
 #            in the $(PROJECT_ROOT)/common directory, the path here should be left 
-#            as:    lib/FreeRTOS
+#            as:    lib/ASF/sam/utils/syscalls/gcc
 #
 SYSCALL_PATH = lib/ASF/sam/utils/syscalls/gcc
 
 #-----------------------------------------------------------------------------------
-# ASF File/Directory Locations
+# Syscall File/Directory Locations
 #-----------------------------------------------------------------------------------
 # A list of files and directories in which source files (*.cpp, *.c) and 
 # headers (.h). Because of the introduction of architecture and part-specific code,

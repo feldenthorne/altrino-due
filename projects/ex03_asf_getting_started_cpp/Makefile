@@ -12,7 +12,7 @@ include common/asflib.mk
 include common/syscalls.mk
 
 # Project name
-TARGET = ex01_asf_getting_started
+TARGET = ex03_asf_getting_started_cpp
 
 # Path to top level ASF directory relative to this project directory.
 PRJ_PATH = lib/ASF
