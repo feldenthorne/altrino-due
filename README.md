@@ -77,7 +77,7 @@ install method worked for the author:
 
  	* Or add this entry to your Software Sources: 
 
-			deb http://archive.ubuntu.com/ubuntu/ raring main restricted universe   multiverse
+			deb http://old-releases.ubuntu.com/ubuntu/ raring main restricted universe multiverse
 
  * Download, unzip, and install the toolchain (this takes a while!)
 
@@ -100,7 +100,8 @@ IDE uses, if you're interested. Needless to say, it's necessary to install it to
 programs to your Due using this environment.
 
 If you're using a Debian/Ubuntu distribution, you can download "bossac" using
-	sudo apt-get install bossac
+
+	sudo apt-get install bossa-cli
 
 Otherwise, you can download the binaries for your particular system on their [SourceForge
 page](http://sourceforge.net/projects/b-o-s-s-a/files/).
