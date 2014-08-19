@@ -1,3 +1,10 @@
+# Project name
+TARGET = ex01_asf_getting_started
+
+# If you plan on using a custom UART/USART, Clock, Board, or other module 
+# configurations for ASF, put the directory for your config headers here
+ASF_CONFIG = lib/ASF_Config
+
 # If you plan on using FreeRTOS, make sure that this variable is set to 1
 # This is necessary when compiling examples out of ASF because each example has its
 # own SysTick_Handler, which FreeRTOS replaces with its own.
@@ -10,9 +17,6 @@ include common/freertoslib.mk
 endif
 include common/asflib.mk
 include common/syscalls.mk
-
-# Project name
-TARGET = ex01_asf_getting_started
 
 # Path to top level ASF directory relative to this project directory.
 PRJ_PATH = lib/ASF

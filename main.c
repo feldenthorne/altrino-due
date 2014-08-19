@@ -85,10 +85,10 @@
  *
  */
 
-#include "include/asf.h"
+#include "lib/ASF_Config/asf.h"
+#include "lib/ASF_Config/conf_board.h"
+#include "lib/ASF_Config/conf_clock.h"
 #include <stdio_serial.h>
-#include "include/conf_board.h"
-#include "include/conf_clock.h"
 
 /** IRQ priority for PIO (The lower the value, the greater the priority) */
 // [main_def_pio_irq_prior]

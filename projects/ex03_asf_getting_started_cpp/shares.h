@@ -8,11 +8,11 @@
 #define _EX_CPP_SHARES_H
 
 // Includes for convenience
-#include "include/asf.h"
+#include "lib/ASF_Config/asf.h"
+#include "lib/ASF_Config/conf_board.h"
+#include "lib/ASF_Config/conf_clock.h"
+#include "lib/ASF_Config/conf_uart_serial.h"
 #include <stdio_serial.h>
-#include "include/conf_board.h"
-#include "include/conf_clock.h"
-#include "include/conf_uart_serial.h"
 
 /** \brief IRQ priority for PIO (The lower the value, the greater the priority) 
  */

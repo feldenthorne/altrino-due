@@ -49,7 +49,7 @@
 
 /** \brief Define the header string, shown to the user on startup
  */
-#define STRING_HEADER "-- Getting Started Example --\r\n" \
+#define STRING_HEADER "-- C++ Getting Started Example --\r\n" \
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 	

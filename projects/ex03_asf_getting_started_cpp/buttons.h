@@ -9,7 +9,6 @@
 
 // Includes for convenience
 #include "shares.h"
-#include "include/asf.h"
 
 /** \brief IRQ priority for PIO (The lower the value, the greater the priority) 
  */

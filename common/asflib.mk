@@ -198,7 +198,6 @@ ASF_INCLUDE = \
        common/services/sleepmgr/sam/module_config          \
        common/services/serial                              \
        common/services/serial/sam_uart                     \
-       common/services/serial/sam_uart/module_config       \
        common/services/spi                                 \
        common/services/spi/sam_spi/module_config           \
        common/services/twi                                 \
@@ -244,6 +243,15 @@ ASF_INCLUDE = \
        sam/utils/preprocessor                              \
        thirdparty/CMSIS/Include                            \
        thirdparty/CMSIS/Lib/GCC
+
+# If the user has named a custom UART configuration file, don't use the standard ASF
+# file, located at $(ASF_DIR)/common/services/serial/sam_uart/module_config
+ifneq ($(ASF_CONFIG),)
+ASF_INCLUDE += ../../$(ASF_CONFIG)
+else
+ASF_INCLUDE += common/services/serial/sam_uart/module_config
+endif
+
 
 #-----------------------------------------------------------------------------------
 # Compiler Object/Flag Setup
