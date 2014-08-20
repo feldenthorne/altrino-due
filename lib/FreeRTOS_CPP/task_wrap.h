@@ -5,6 +5,7 @@
  *
  *  Revisions:
  *    \li 29-04-14 RZ Created initial wrapper. Commented some.
+ *    \li 19-08-14 RZ Updated to reflect FreeRTOS 8+ type conventions
  *
  *  License:
  *    This file is copyright 2014 by R. Zimmerman. It currently intended 
@@ -48,7 +49,7 @@ protected:
 	 *  versions below 8.0 - if the version is upgraded, this data type changes to 
 	 *  TaskHandle_t.
 	 */
-	xTaskHandle handle;
+	TaskHandle_t handle;
 	
 public:
 	/** \brief The destructor for the base task class.
