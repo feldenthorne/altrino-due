@@ -153,6 +153,16 @@ See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html. */
 header file. */
 #define configASSERT( x ) if( ( x ) == 0 ) { taskDISABLE_INTERRUPTS(); for( ;; ); }
 
+/** This macro allows one to put in a number of milliseconds for a time interval and
+ *  get out the correct number of RTOS ticks to match (approximately) that interval.
+ *  For example, if one has a delay function, one can call
+ *  \code delay (configMS_TO_TICKS (15)); \endcode
+ *  to get a 15 ms delay regardless of the configured tick rate. If the requested
+ *  delay comes out to less than one tick, this macro causes a delay of one tick.
+ */
+#define configMS_TO_TICKS(x)            ((((x) * configTICK_RATE_HZ / 1000) > 0) \
+                                        ? ((x) * configTICK_RATE_HZ / 1000) : 1)
+
 /* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS
 standard names. */
 #define vPortSVCHandler SVC_Handler
