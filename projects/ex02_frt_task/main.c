@@ -15,15 +15,14 @@
 /*
  * Example to demonstrate thread definition, semaphores, and thread sleep.
  */
+// Pop in the library definitions for ASF, the board, and the serial port
+#include "lib/ASF_Config/asf.h"
+#include <stdio_serial.h>
+
+// FreeRTOS defines
 #include <FreeRTOS.h>
 #include <semphr.h>
 #include <task.h>
-
-// Pop in the library definitions for ASF, the board, and the serial port
-#include "lib/ASF_Config/asf.h"
-#include "lib/ASF_Config/conf_board.h"
-#include "lib/ASF_Config/conf_clock.h"
-#include <stdio_serial.h>
 
 // Redefine AVR Flash string macro as nop for ARM
 #undef F
