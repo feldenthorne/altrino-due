@@ -108,6 +108,7 @@ PART_REV  = e
 # building. While this has the benefit of reducing the library size substantially,
 # it does have the unfortunate side-effect of needed a separate definition of the
 # directories we pull files from, otherwise it'd be hard to clean them up.
+#
 # ASF_FILES:    The specific file locations for what we want in the library.
 #                For the Arduino Due, the Non-Volatile Memory, ADC, PIO, PMC, sleep,
 #                SPI, TWI, UART, USART, and Watchdog Timer drivers are selected,
@@ -137,31 +138,6 @@ PART_REV  = e
 #                search in Linux environment. In Windows, indexing the project 
 #                directory and using Windows search should work.
 #
-#ASF_FILES = \
-#       common/drivers/nvm/sam/sam_nvm.c                    \
-#       common/services/clock/$(PART_BASE)/sysclk.c         \
-#       common/services/serial/usart_serial.c               \
-#       common/services/spi/sam_spi/spi_master.c            \
-#       common/utils/interrupt/interrupt_sam_nvic.c         \
-#       common/utils/stdio/read.c                           \
-#       common/utils/stdio/write.c                          \
-#       sam/boards/$(ASF_FOLDER)/init.c                     \
-#       sam/drivers/adc/adc.c                               \
-#       sam/drivers/efc/efc.c                               \
-#       sam/drivers/pio/pio.c                               \
-#       sam/drivers/pio/pio_handler.c                       \
-#       sam/drivers/pmc/pmc.c                               \
-#       sam/drivers/pmc/sleep.c                             \
-#       sam/drivers/spi/spi.c                               \
-#       sam/drivers/tc/tc.c                                 \
-#       sam/drivers/twi/twi.c                               \
-#       sam/drivers/uart/uart.c                             \
-#       sam/drivers/usart/usart.c                           \
-#       sam/drivers/wdt/wdt.c                               \
-#       sam/utils/cmsis/$(PART_BASE)/source/templates/exceptions.c \
-#       sam/utils/cmsis/$(PART_BASE)/source/templates/gcc/startup_$(PART_BASE).c \
-#       sam/utils/cmsis/$(PART_BASE)/source/templates/system_$(PART_BASE).c \
-#       sam/utils/syscalls/gcc/syscalls.c
 
 ASF_FILES = \
        common/drivers/nvm/sam                              \
