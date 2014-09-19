@@ -97,14 +97,14 @@ PART_SPEC = 8
 PART_REV  = e
 
 #-----------------------------------------------------------------------------------
-# ASF File/Directory Locations
+# FreeRTOS File/Directory Locations
 #-----------------------------------------------------------------------------------
 # A list of files and directories in which source files (*.cpp, *.c) and 
-# headers (.h). Because of the introduction of architecture and part-specific code,
-# and the way ASF defines parts within $(ASF_PATH)/common/util/parts.h, specific
-# targets need to be identified rather than grabbing whole directories during
-# building. While this has the benefit of reducing the library size substantially,
-# it does have the unfortunate side-effect of needed a separate definition of the
+# headers (.h). Because we're using FreeRTOS, we have name the proper portable, 
+# which identifies the specific architecture we're building for rather than 
+# needlessly grabbing whole directories during building. While this has the 
+# benefit of reducing the library size substantially, it does have the 
+# unfortunate side-effect of needed a separate definition of the
 # directories we pull files from, otherwise it'd be hard to clean them up.
 # FRT_DIRS:     The specific directories for what we want in the library.
 #                In general, this is simply the $(FRT_PATH)/Source directory, but
