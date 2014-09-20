@@ -286,6 +286,15 @@ install:  all
 # or Git repository.
 #
 clean:
+@echo -n Cleaning up the Project build files...
+	@for subdir in $(PROJ_DIRS); do \
+		rm -f $$subdir/*.o; \
+		rm -f $$subdir/*.d; \
+		rm -f $$subdir/*.lst; \
+		rm -f $$subdir/*~; \
+	done
+	@echo done.
+	
 	@echo -n Cleaning up the ASF library build files...
 	@rm -f $(ASF_LIB_NAME) *.o *.d *.hex *.lst *.elf *.bin *~
 	@for subdir in $(ASF_CLEAN); do \
